@@ -1,0 +1,16 @@
+#logo{
+	background:url('/img/layout/anscombe-ringland.jpg') no-repeat;
+	width:290px;
+	height:101px;
+}
+.welcome-chancellors, .welcome-russell{
+	display:none;
+}
+
+.welcome-anscombes{
+	display:block;
+}
+
+#footer-content {
+	height: 200px;
+}

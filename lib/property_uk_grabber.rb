@@ -4,12 +4,30 @@ require 'open-uri'
 
 module PropertyUkGrabber
 
-  def self.price url
-   # url = "http://www.anscombes.co.uk/properties/highgate-property/conversion-4-bedroom-flat-apartment-for-sale/1364288/shepherds-hill-highgate-n6?area=n4+2lx&longitude=&latitude=&radius=5&saleType=Sale"
-   page = Nokogiri::HTML(open(url))
-   puts page.css(".title-product .price").inner_text.strip
+  class Property
+
+    def initialize(url)
+      @page = Nokogiri::HTML(open_url(url))
+    end
+
+    def open_url url
+      open(url)
+    end
+
+    def price
+      @price ||= get_price
+    end
+
+  private
+
+    def get_price
+      @page.css(".title-product .price").inner_text.strip
+    end
+
   end
 
-
+  def self.get_property(url)
+    Property.new(url)
+  end
 
 end
