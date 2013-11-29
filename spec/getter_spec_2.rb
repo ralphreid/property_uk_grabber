@@ -7,12 +7,12 @@ require "property_uk_grabber"
 describe PropertyUkGrabber do
 
   before(:each) do
-    path  = File.expand_path("../anscombes.html", __FILE__)
+    path  = File.expand_path("../anscombes_2.html", __FILE__)
     @property = PropertyUkGrabber.get_property(path)
   end
 
   it "gets price" do
-    @property.price.should == "£1,750,000"
+    @property.price.should == "£789,950"
   end
 
 
